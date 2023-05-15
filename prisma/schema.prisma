@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://bimendra:CP8DB1jVkzmquWIi@cluster0.ale4ujm.mongodb.net/mern_notes_db?retryWrites=true&w=majority"
+  url      = "mongodb+srv://bimendra:1Nfinity@cluster0.ale4ujm.mongodb.net/mern_notes_db?retryWrites=true&w=majority"
 }
 
 model User {
