@@ -2,7 +2,10 @@
   "name": "mern-tech-notes",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "npx nx run api:serve --configuration=production",
+    "build": "nx run-many --targets=build --all"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^9.1.1",
