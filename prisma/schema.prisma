@@ -7,5 +7,37 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = "mongodb+srv://bimendra:CP8DB1jVkzmquWIi@cluster0.ale4ujm.mongodb.net/mern_notes_db?retryWrites=true&w=majority"
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  username String
+  password String
+  active Boolean @default(true)
+  role Role @default(EMPLOYEE)
+
+  notes Note[]
+
+  @@map("users")
+}
+
+model Note {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  title String
+  text String
+  completed Boolean @default(false)
+
+  author User @relation(fields: [authorId], references: [id])
+  authorId String @db.ObjectId
+
+  @@map("notes")
+}
+
+enum Role {
+  EMPLOYEE
+  ADMIN
 }
